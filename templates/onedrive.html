@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAG Chatbot Demo</title>
+    <link rel="stylesheet" href="/static/css/onedrive.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <h1>Welcome, {{ session['user']['name'] }}</h1>
+
+    <!-- Upload Section -->
+    <div id="uploadSection">
+        <h3>Upload Document or Image</h3>
+        <input type="file" id="fileInput" accept=".docx,.png,.jpg,.jpeg,.tiff,.bmp">
+        <button id="uploadButton" onclick="uploadFile()">Upload</button>
+        <div class="upload-progress" id="uploadProgress">
+            <div class="progress-bar">
+                <div class="progress-bar-fill" id="progressBarFill"></div>
+            </div>
+            <div class="upload-status" id="upload-status"></div>
+        </div>
+    </div>
+
+    <!-- Chat Section -->
+    <div id="chatbox"></div>
+    <div id="inputSection">
+        <input type="text" id="userInput" placeholder="Type your message...">
+        <button id="sendButton">Send</button>
+    </div>
+
+    <!-- Relevant Documents Section -->
+    <div id="relevantDocs">
+        <h3>Relevant Documents:</h3>
+        <ul id="docList"></ul>
+    </div>
+
+    <!-- External JavaScript file -->
+    <script src="/static/js/onedrive.js"></script>
+</body>
+</html>
